@@ -205,3 +205,11 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+# Ignore SSH keys
+.ssh/
+id_ed25519*
+eval*
+
+# macOS system files
+.DS_Store
+
