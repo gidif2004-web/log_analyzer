@@ -12,4 +12,9 @@ def big_packets_filter(data):
 def lable_packet_size(data):
     return list(map(lambda log: log + ['LARGE'] if int(log[5]) >= LARGE_PACKET else log + ['NORMAL'] , data))
 
-print (lable_packet_size([[1,2,5,2,2,'5436'],[1,2,2,2,2,'4436'],[1,2,2,2,2,'6436'],[1,2,2,2,2,'436']]))
+def count_source_ips(data):
+    source_ips = [log[1] for log in data]
+    keys = list(set(source_ips))
+    values = [source_ips.count(ip) for ip in set(source_ips)]
+    return dict(zip(keys, values))
+
