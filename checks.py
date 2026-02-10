@@ -38,6 +38,6 @@ def suspicions_dict(data):
 def night_activity_filter(data):
     return list(filter(lambda log: log[0][11:].startswith(NIGHT_ACTIVITY),data))
 
+def suspicions_dict_filter(s_dict):
+    return dict(filter(lambda val: len(val[1]) >= 2, s_dict.items()))
 
-
- 
