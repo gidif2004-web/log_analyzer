@@ -18,3 +18,7 @@ def count_source_ips(data):
     values = [source_ips.count(ip) for ip in set(source_ips)]
     return dict(zip(keys, values))
 
+def ports_dict(data):
+    return {int(log[3]): log[4] for log in data}
+
+ 
