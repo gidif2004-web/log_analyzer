@@ -1,3 +1,4 @@
 LOCAL_IPs = ('10.', '192.168.')
 SENSITIVE_PORT = ('22', '23', '3389')
 LARGE_PACKET = 5000
+NIGHT_ACTIVITY = ('00', '01', '02', '03', '04', '05', '06:00:00')
