@@ -43,3 +43,6 @@ def suspicions_dict_filter(s_dict):
 
 def hours_list(data):
     return list(map(lambda log: int(log[0][12]) if log[0][11] == '0' else int(log[0][11:13]), data))
+
+def byte_to_kb(data):
+    return list(map(lambda log: round(int(log[5])/1024,1),data))
