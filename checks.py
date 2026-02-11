@@ -41,3 +41,17 @@ def night_activity_filter(data):
 def suspicions_dict_filter(s_dict):
     return dict(filter(lambda val: len(val[1]) >= 2, s_dict.items()))
 
+def hours_list(data):
+    return list(map(lambda log: int(log[0][12]) if log[0][11] == '0' else int(log[0][11:13]), data))
+
+def byte_to_kb(data):
+    return list(map(lambda log: round(int(log[5])/1024,1),data))
+
+def sensitive_ports_comprehension(data):
+    return [log for log in data if log[3] in SENSITIVE_PORT]
+
+def all_suspicions_in_row(row):
+    return list(dict(filter(lambda item: item[1](row) , suspicion_checks.items())).keys())
+
+def all_log_by_suspicion_checks(data):
+    return list(filter(lambda row: len(row) >= 1 ,map(lambda row: all_suspicions_in_row(row), data)))
