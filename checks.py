@@ -46,3 +46,6 @@ def hours_list(data):
 
 def byte_to_kb(data):
     return list(map(lambda log: round(int(log[5])/1024,1),data))
+
+def sensitive_ports_comprehension(data):
+    return [log for log in data if log[3] in SENSITIVE_PORT]
