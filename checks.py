@@ -53,3 +53,5 @@ def sensitive_ports_comprehension(data):
 def all_suspicions_in_row(row):
     return list(dict(filter(lambda item: item[1](row) , suspicion_checks.items())).keys())
 
+def all_log_by_suspicion_checks(data):
+    return list(filter(lambda row: len(row) >= 1 ,map(lambda row: all_suspicions_in_row(row), data)))
