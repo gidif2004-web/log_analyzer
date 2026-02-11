@@ -49,3 +49,7 @@ def byte_to_kb(data):
 
 def sensitive_ports_comprehension(data):
     return [log for log in data if log[3] in SENSITIVE_PORT]
+
+def all_suspicions_in_row(row):
+    return list(dict(filter(lambda item: item[1](row) , suspicion_checks.items())).keys())
+
