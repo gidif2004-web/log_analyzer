@@ -41,3 +41,5 @@ def night_activity_filter(data):
 def suspicions_dict_filter(s_dict):
     return dict(filter(lambda val: len(val[1]) >= 2, s_dict.items()))
 
+def hours_list(data):
+    return list(map(lambda log: int(log[0][12]) if log[0][11] == '0' else int(log[0][11:13]), data))
