@@ -1,5 +1,5 @@
 from config import *
-from reader import load_csv
+from reader import *
 from pathlib import Path
 
 def external_ips_filter(data):
@@ -55,3 +55,8 @@ def all_suspicions_in_row(row):
 
 def all_log_by_suspicion_checks(data):
     return list(filter(lambda row: len(row) >= 1 ,map(lambda row: all_suspicions_in_row(row), data)))
+
+def generate_suspicion_rows(rows_generator):
+    for row in rows_generator:
+        if len(all_suspicions_in_row(row)) >= 1:
+            yield row
