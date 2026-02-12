@@ -65,3 +65,6 @@ def generate_suspicion_rows_with_details(rows_generator):
     for row in rows_generator:
         if len(all_suspicions_in_row(row)) >= 1:
             yield (row, all_suspicions_in_row(row))
+
+def suspicion_rows_counter(rows_generator):
+    return sum(1 for row in rows_generator if len(all_suspicions_in_row(row)) >= 1)
